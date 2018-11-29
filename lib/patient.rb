@@ -1,3 +1,5 @@
+require 'pry'
+
 class Patient
 
 attr_accessor :doctor, :date, :patient, :name
@@ -21,7 +23,14 @@ def appointments
 end
 
 def doctors
-  appointments.map(&:doctor)
+  # appointments.map (&:doctor)
+  result = []
+  Appointment.all.select do |appointment|
+    if appointment.patient == self
+      result << appointment.doctor
+    end
+  end
+  result
 end
 
 end

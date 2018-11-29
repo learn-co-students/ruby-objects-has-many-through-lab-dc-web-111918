@@ -21,7 +21,13 @@ def appointments
 end
 
 def patients
-  appointments.map(&:patient)
+  result = []
+  Appointment.all.select do |appointment|
+    if appointment.doctor == self
+      result << appointment.patient
+    end
+  end
+  result
 end
 
 end
