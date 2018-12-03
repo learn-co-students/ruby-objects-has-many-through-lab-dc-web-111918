@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 describe 'Patient' do
   describe '#new' do
@@ -48,7 +49,7 @@ describe 'Patient' do
       hevydevy = Patient.new('Devin Townsend')
       hevydevy.new_appointment(doctor_who, 'Friday, January 32nd')
       hevydevy.new_appointment(doctor_what, 'Saturday, January 32nd')
-
+      # binding.pry
       expect(hevydevy.doctors).to include(doctor_who)
       expect(hevydevy.doctors).to include(doctor_what)
     end
